@@ -8,12 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		5DBAAFDB234E297600FBE9A7 /* RxAccessibility.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DBAAFD9234E297600FBE9A7 /* RxAccessibility.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5DBAAFE2234E30B500FBE9A7 /* UIAccessibility+RxSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBAAFE1234E30B500FBE9A7 /* UIAccessibility+RxSwift.swift */; };
+		5DBAAFE6234E3F3F00FBE9A7 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DBAAFE4234E3F3F00FBE9A7 /* RxCocoa.framework */; };
+		5DBAAFE7234E3F3F00FBE9A7 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DBAAFE5234E3F3F00FBE9A7 /* RxSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5DBAAFD6234E297600FBE9A7 /* RxAccessibility.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxAccessibility.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DBAAFD9234E297600FBE9A7 /* RxAccessibility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RxAccessibility.h; sourceTree = "<group>"; };
 		5DBAAFDA234E297600FBE9A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5DBAAFE1234E30B500FBE9A7 /* UIAccessibility+RxSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAccessibility+RxSwift.swift"; sourceTree = "<group>"; };
+		5DBAAFE4234E3F3F00FBE9A7 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		5DBAAFE5234E3F3F00FBE9A7 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -21,6 +27,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DBAAFE6234E3F3F00FBE9A7 /* RxCocoa.framework in Frameworks */,
+				5DBAAFE7234E3F3F00FBE9A7 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -32,6 +40,7 @@
 			children = (
 				5DBAAFD8234E297600FBE9A7 /* RxAccessibility */,
 				5DBAAFD7234E297600FBE9A7 /* Products */,
+				5DBAAFE3234E3F3E00FBE9A7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -48,8 +57,18 @@
 			children = (
 				5DBAAFD9234E297600FBE9A7 /* RxAccessibility.h */,
 				5DBAAFDA234E297600FBE9A7 /* Info.plist */,
+				5DBAAFE1234E30B500FBE9A7 /* UIAccessibility+RxSwift.swift */,
 			);
 			path = RxAccessibility;
+			sourceTree = "<group>";
+		};
+		5DBAAFE3234E3F3E00FBE9A7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5DBAAFE4234E3F3F00FBE9A7 /* RxCocoa.framework */,
+				5DBAAFE5234E3F3F00FBE9A7 /* RxSwift.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -95,6 +114,7 @@
 				TargetAttributes = {
 					5DBAAFD5234E297600FBE9A7 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -130,6 +150,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DBAAFE2234E30B500FBE9A7 /* UIAccessibility+RxSwift.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,12 +282,17 @@
 		5DBAAFDF234E297600FBE9A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = RxAccessibility/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -277,6 +303,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = monikamsc.RxAccessibility;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -285,12 +312,17 @@
 		5DBAAFE0234E297600FBE9A7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = RxAccessibility/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
